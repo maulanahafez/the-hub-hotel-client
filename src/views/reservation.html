@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>The Hub Hotel</title>
+
+    <!-- Style -->
+    <link
+      rel="stylesheet"
+      href="../css/style.css"
+    />
+
+    <!-- Alpine.js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- Font Family -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+    </style>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body class="font-open-sans">
+    <!-- Navbar -->
+    <nav
+      class="fixed inset-x-0 top-0 z-[1000] bg-transparent bg-white"
+      x-data="{mobileNav: false}"
+    >
+      <div class="mx-auto max-w-6xl px-6 py-3">
+        <div class="container mx-auto">
+          <div class="mx-1 flex items-center justify-between">
+            <div class="font-poppins text-xl">HUBHOTEL</div>
+            <div class="text-md hidden items-center gap-x-12 lg:flex">
+              <div>
+                <a
+                  href="/"
+                  class="flex items-center gap-x-2 p-2 transition hover:text-sky-500"
+                >
+                  <i class="fa-solid fa-bed"></i>
+                  <span>Rooms</span>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="/"
+                  class="flex items-center gap-x-2 p-2 transition hover:text-sky-500"
+                >
+                  <i class="fa-solid fa-calendar-days"></i>
+                  <span>Book</span>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="/"
+                  class="flex items-center gap-x-2 p-2 transition hover:text-sky-500"
+                >
+                  <i class="fa-solid fa-bell-concierge"></i>
+                  <span>Check In</span>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="/"
+                  class="flex items-center gap-x-2 p-2 transition hover:text-sky-500"
+                >
+                  <i class="fa-solid fa-clock-rotate-left"></i>
+                  <span>Reservations</span>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="/"
+                  class="rounded-lg bg-sky-500 px-6 py-2 text-sm font-bold text-white transition hover:bg-sky-950"
+                >
+                  <span>Login</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Toggler -->
+            <div class="lg:hidden">
+              <i
+                class="fa-solid fa-bars cursor-pointer text-2xl transition hover:text-sky-500"
+                x-on:click="mobileNav = !mobileNav"
+                x-show="!mobileNav"
+                x-transition:enter="transition"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+              ></i>
+              <i
+                class="fa-solid fa-xmark cursor-pointer text-2xl transition hover:text-sky-500"
+                x-on:click="mobileNav = !mobileNav"
+                x-show="mobileNav"
+                x-transition:enter="transition"
+                x-transition:enter-start="opacity-0 "
+                x-transition:enter-end="opacity-100"
+              ></i>
+            </div>
+
+            <!-- Mobile/Tablet Navbar -->
+            <div
+              class="fixed inset-0 top-[3.25rem] z-[999] max-w-xs bg-white lg:hidden"
+              x-show="mobileNav"
+              x-on:click.outside="mobileNav = false"
+              x-transition:enter="transition"
+              x-transition:enter-start="opacity-0 -translate-x-full"
+              x-transition:enter-end="opacity-100"
+              x-transition:leave="transition"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0 -translate-x-full"
+            >
+              <div class="flex h-full flex-col gap-y-2 px-6 py-4 text-sm">
+                <div>
+                  <a
+                    href="/"
+                    class="flex items-center gap-x-2 rounded-lg px-2 py-1 transition hover:bg-sky-500 hover:text-white"
+                  >
+                    <div class="flex h-8 w-8">
+                      <i class="fa-solid fa-bed m-auto text-lg"></i>
+                    </div>
+                    <span>Rooms</span>
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href="/"
+                    class="flex items-center gap-x-2 rounded-lg px-2 py-1 transition hover:bg-sky-500 hover:text-white"
+                  >
+                    <div class="flex h-8 w-8">
+                      <i class="fa-solid fa-calendar-days m-auto text-lg"></i>
+                    </div>
+                    <span>Book</span>
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href="/"
+                    class="flex items-center gap-x-2 rounded-lg px-2 py-1 transition hover:bg-sky-500 hover:text-white"
+                  >
+                    <div class="flex h-8 w-8">
+                      <i class="fa-solid fa-bell-concierge m-auto text-lg"></i>
+                    </div>
+                    <span>Check In</span>
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href="/"
+                    class="flex items-center gap-x-2 rounded-lg px-2 py-1 transition hover:bg-sky-500 hover:text-white"
+                  >
+                    <div class="flex h-8 w-8">
+                      <i
+                        class="fa-solid fa-clock-rotate-left m-auto text-lg"
+                      ></i>
+                    </div>
+                    <span>Reservations</span>
+                  </a>
+                </div>
+                <div class="flex grow">
+                  <a
+                    href="/"
+                    class="mt-auto w-full rounded-lg bg-sky-500 px-6 py-2.5 text-center text-sm font-bold text-white transition hover:bg-sky-950"
+                  >
+                    <span>Login</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Reservations -->
+    <section class="mx-auto mb-2 mt-[5rem] max-w-2xl px-6">
+      <div class="container mx-auto">
+        <div x-data="reservation()">
+          <div class="text-center">
+            <h1 class="font-poppins text-2xl">Reservation</h1>
+            <div
+              class="relative mt-2 flex items-center justify-center gap-x-16"
+            >
+              <div
+                class="flex h-12 w-12 rounded-full border border-black bg-sky-500 text-lg font-bold text-white"
+              >
+                <span class="m-auto">1</span>
+              </div>
+              <div
+                class="flex h-12 w-12 rounded-full border border-black text-lg font-bold"
+                :class="show === 2 || show === 3  ? 'bg-sky-500 text-white' : 'bg-white text-black'"
+              >
+                <span class="m-auto">2</span>
+              </div>
+              <div
+                class="flex h-12 w-12 rounded-full border border-black text-lg font-bold"
+                :class="show === 3  ? 'bg-sky-500 text-white' : 'bg-white text-black'"
+              >
+                <span class="m-auto">3</span>
+              </div>
+              <div
+                class="absolute right-1/2 top-1/2 -z-10 h-px w-1/5 -translate-y-1/2"
+                :class="show === 2 || show === 3  ? 'bg-sky-500' : 'bg-black'"
+              ></div>
+              <div
+                class="absolute left-1/2 top-1/2 -z-10 h-px w-1/5 -translate-y-1/2"
+                :class="show === 3  ? 'bg-sky-500' : 'bg-black'"
+              ></div>
+            </div>
+
+            <!-- First Slide -->
+            <div
+              class="mt-6 items-stretch overflow-hidden rounded-lg border border-black/20 sm:flex"
+              x-show="show === 1"
+              x-transition:enter="transition"
+              x-transition:enter-start="opacity-0"
+              x-transition:enter-end="opacity-100"
+            >
+              <div class="shrink-0 bg-red-200">
+                <img
+                  src="../../assets/hotel-rooms/1.jpg"
+                  alt=""
+                  class="h-full w-full object-cover sm:w-60"
+                />
+              </div>
+              <div
+                class="mt-4 grid grow grid-cols-1 gap-y-1 px-4 text-start text-[12px] sm:mt-0 sm:p-2"
+              >
+                <h1 class="font-poppins text-xl">Reservation Information</h1>
+                <p
+                  class="mt-2 text-red-500"
+                  x-show="firstSlide"
+                >
+                  Please fill the information below!
+                </p>
+                <div
+                  class="mt-2 grid grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+                >
+                  <p class="font-semibold text-black/60">Room Type</p>
+                  <input
+                    type="text"
+                    name="type"
+                    id="type"
+                    placeholder="Type"
+                    value="Deluxe Room"
+                    readonly
+                    class="col-span-2 w-full rounded-md border border-black/60 bg-gray-100 px-3 py-1 focus:outline-blue-500"
+                  />
+                </div>
+                <div
+                  class="grid grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+                >
+                  <p class="font-semibold text-black/60">Room Number</p>
+                  <input
+                    type="text"
+                    name="room_code"
+                    id="room_code"
+                    placeholder="Roome Code"
+                    value="D101"
+                    readonly
+                    class="col-span-2 w-full rounded-md border border-black/60 bg-gray-100 px-3 py-1 focus:outline-blue-500"
+                  />
+                </div>
+                <div
+                  class="grid grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+                >
+                  <p class="relative font-semibold text-black/60">
+                    Date In
+                    <span class="absolute -top-2 right-px text-red-500">*</span>
+                  </p>
+                  <input
+                    type="date"
+                    name="date_in"
+                    id="date_in"
+                    placeholder="Date In"
+                    x-model="form.date_in"
+                    class="col-span-2 w-full rounded-md border border-black/60 px-3 py-1 focus:outline-blue-500"
+                  />
+                </div>
+                <div
+                  class="grid grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+                >
+                  <p class="relative font-semibold text-black/60">
+                    Date Out
+                    <span class="absolute -top-2 right-px text-red-500">*</span>
+                  </p>
+                  <input
+                    type="date"
+                    name="date_out"
+                    id="date_out"
+                    placeholder="Date Out"
+                    x-model="form.date_out"
+                    class="col-span-2 w-full rounded-md border border-black/60 px-3 py-1 focus:outline-blue-500"
+                  />
+                </div>
+                <div
+                  class="grid w-full grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+                >
+                  <p class="relative font-semibold text-black/60">
+                    Range
+                    <span class="absolute -top-2 right-px text-red-500">*</span>
+                  </p>
+                  <div class="col-span-2 flex items-center gap-x-2">
+                    <input
+                      type="number"
+                      name="range"
+                      id="range"
+                      placeholder="Range"
+                      x-model="form.range"
+                      class="col-span-2 shrink-0 grow rounded-md border border-black/60 px-3 py-1 focus:outline-blue-500"
+                    />
+                    <p class="text-black/60">days</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Second Slide -->
+            <div
+              class="mt-6 overflow-hidden rounded-lg border border-black/20 p-4 text-start text-[12px]"
+              x-show="show === 2"
+              x-transition:enter="transition"
+              x-transition:enter-start="opacity-0"
+              x-transition:enter-end="opacity-100"
+            >
+              <h1 class="font-poppins text-xl">Personal Information</h1>
+              <p
+                class="mt-2 text-red-500"
+                x-show="secondSlide"
+              >
+                Please fill the information below!
+              </p>
+              <div
+                class="mt-2 grid grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+              >
+                <p class="font-semibold text-black/60">Name</p>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Name"
+                  value="Maulana Hafez"
+                  readonly
+                  class="col-span-2 w-full rounded-md border border-black/60 bg-gray-100 px-3 py-1 focus:outline-blue-500"
+                />
+              </div>
+              <div
+                class="mt-2 grid grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+              >
+                <p class="font-semibold text-black/60">Email</p>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                  value="maulana.tempariyawan@mhs.unsoed.ac.id"
+                  readonly
+                  class="col-span-2 w-full rounded-md border border-black/60 bg-gray-100 px-3 py-1 focus:outline-blue-500"
+                />
+              </div>
+              <div
+                class="mt-2 grid grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+              >
+                <p class="relative font-semibold text-black/60">
+                  Payment Method
+                  <span class="absolute -top-2 right-px text-red-500">*</span>
+                </p>
+                <select
+                  name="payment_mtd"
+                  id=""
+                  x-model="form.payment_mtd"
+                  class="col-span-2 w-full rounded-md border border-black/60 px-3 py-1 focus:outline-sky-500"
+                >
+                  <option value>Select One</option>
+                  <option value="Bank Transfer">Bank Transfer</option>
+                  <option value="e-Wallet">e-Wallet</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Third Slide -->
+            <div
+              class=""
+              x-show="show === 3"
+              x-transition:enter="transition"
+              x-transition:enter-start="opacity-0"
+              x-transition:enter-end="opacity-100"
+            >
+              <div
+                class="mt-6 overflow-hidden rounded-lg border border-black/20 p-4 text-start text-[12px]"
+              >
+                <h1 class="font-poppins text-xl">Reservation Summary</h1>
+                <form
+                  action=""
+                  method=""
+                  class="grid grid-cols-1 gap-y-2"
+                >
+                  <div
+                    class="mt-2 grid grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+                  >
+                    <p class="font-semibold text-black/60">Room Type</p>
+                    <input
+                      type="text"
+                      name="type"
+                      id="type"
+                      placeholder="Type"
+                      value="Deluxe Room"
+                      readonly
+                      class="col-span-2 w-full rounded-md border border-black/60 bg-gray-100 px-3 py-1 focus:outline-blue-500"
+                    />
+                  </div>
+                  <div
+                    class="grid grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+                  >
+                    <p class="font-semibold text-black/60">Room Number</p>
+                    <input
+                      type="text"
+                      name="room_code"
+                      id="room_code"
+                      placeholder="Roome Code"
+                      value="D101"
+                      readonly
+                      class="col-span-2 w-full rounded-md border border-black/60 bg-gray-100 px-3 py-1 focus:outline-blue-500"
+                    />
+                  </div>
+                  <div
+                    class="grid grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+                  >
+                    <p class="font-semibold text-black/60">Date In</p>
+                    <input
+                      type="date"
+                      name="date_in"
+                      id="date_in"
+                      placeholder="Date In"
+                      x-model="form.date_in"
+                      readonly
+                      class="col-span-2 w-full rounded-md border border-black/60 bg-gray-100 px-3 py-1 focus:outline-blue-500"
+                    />
+                  </div>
+                  <div
+                    class="grid grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+                  >
+                    <p class="font-semibold text-black/60">Date Out</p>
+                    <input
+                      type="date"
+                      name="date_out"
+                      id="date_out"
+                      placeholder="Date Out"
+                      x-model="form.date_out"
+                      readonly
+                      class="col-span-2 w-full rounded-md border border-black/60 bg-gray-100 px-3 py-1 focus:outline-blue-500"
+                    />
+                  </div>
+                  <div
+                    class="grid w-full grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+                  >
+                    <p class="font-semibold text-black/60">Range</p>
+                    <div class="col-span-2 flex items-center gap-x-2">
+                      <input
+                        type="number"
+                        name="range"
+                        id="range"
+                        placeholder="Range"
+                        x-model="form.range"
+                        readonly
+                        class="col-span-2 shrink-0 grow rounded-md border border-black/60 bg-gray-100 px-3 py-1 focus:outline-blue-500"
+                      />
+                      <p class="text-black/60">days</p>
+                    </div>
+                  </div>
+                  <div
+                    class="grid grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+                  >
+                    <p class="font-semibold text-black/60">Name</p>
+                    <input
+                      type="text"
+                      name="name"
+                      id="name"
+                      placeholder="Name"
+                      value="Maulana Hafez"
+                      readonly
+                      class="col-span-2 w-full rounded-md border border-black/60 bg-gray-100 px-3 py-1 focus:outline-blue-500"
+                    />
+                  </div>
+                  <div
+                    class="grid grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+                  >
+                    <p class="font-semibold text-black/60">Email</p>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Email"
+                      value="maulana.tempariyawan@mhs.unsoed.ac.id"
+                      readonly
+                      class="col-span-2 w-full rounded-md border border-black/60 bg-gray-100 px-3 py-1 focus:outline-blue-500"
+                    />
+                  </div>
+                  <div
+                    class="grid grid-cols-1 gap-y-1 sm:grid-cols-3 sm:items-center"
+                  >
+                    <p class="font-semibold text-black/60">Payment Method</p>
+                    <select
+                      name="payment_mtd"
+                      id=""
+                      x-model="form.payment_mtd"
+                      class="col-span-2 w-full rounded-md border border-black/60 bg-gray-100 px-3 py-1 focus:outline-sky-500"
+                    >
+                      <option value>Select One</option>
+                      <option value="Bank Transfer">Bank Transfer</option>
+                      <option value="e-Wallet">e-Wallet</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="flex justify-center gap-x-6">
+              <span
+                class="mt-2 inline-block cursor-pointer rounded-lg bg-gray-500 px-4 py-2 text-sm text-white transition hover:bg-gray-950"
+                x-on:click="() => {show === 2 ? goPrev1() : goPrev2()}"
+                x-show="show === 2 || show === 3"
+              >
+                Prev
+              </span>
+              <span
+                class="mt-2 inline-block cursor-pointer rounded-lg bg-sky-500 px-4 py-2 text-sm text-white transition hover:bg-sky-950"
+                x-on:click="() => {show === 1 ? goNext2() : goNext3()}"
+                x-show="show === 1 || show === 2"
+              >
+                Next
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("reservation", () => ({
+          show: 1,
+          form: {
+            date_in: null,
+            date_out: null,
+            range: null,
+            payment_mtd: null,
+            total_price: null,
+          },
+          firstSlide: null,
+          secondSlide: null,
+          thirdSlide: null,
+
+          goNext2() {
+            if (!this.form.date_in || !this.form.date_out || !this.form.range) {
+              this.firstSlide = true;
+            } else {
+              this.firstSlide = false;
+              this.show = 2;
+            }
+          },
+
+          goNext3() {
+            if (!this.form.payment_mtd) {
+              this.secondSlide = true;
+            } else {
+              this.secondSlide = false;
+              this.show = 3;
+            }
+          },
+
+          goPrev1() {
+            if (!this.form.payment_mtd) {
+              this.secondSlide = true;
+            } else {
+              this.secondSlide = false;
+              this.show = 1;
+            }
+          },
+
+          goPrev2() {
+            this.thirdSlide = false;
+            this.show = 2;
+          },
+        }));
+      });
+    </script>
+    <!-- Responsive Helper -->
+    <div
+      class="fixed bottom-20 right-0 h-12 w-12 bg-blue-200 sm:bg-red-200 md:bg-green-200 lg:bg-yellow-200"
+    ></div>
+  </body>
+</html>
