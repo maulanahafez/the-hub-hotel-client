@@ -40,7 +40,6 @@
   </head>
 
   <body class="font-open-sans">
-    <!-- Navbar -->
     <nav
       class="fixed inset-x-0 top-0 z-[1000] bg-transparent bg-white"
       x-data="{mobileNav: false}"
@@ -48,7 +47,13 @@
       <div class="mx-auto max-w-6xl px-6 py-3">
         <div class="container mx-auto">
           <div class="mx-1 flex items-center justify-between">
-            <div class="font-poppins text-xl">HUBHOTEL</div>
+            <div class="">
+              <img
+                src="../../assets/logo.svg"
+                alt=""
+                class="w-14"
+              />
+            </div>
             <div class="text-md hidden items-center gap-x-12 lg:flex">
               <div>
                 <a
@@ -64,17 +69,8 @@
                   href="/"
                   class="flex items-center gap-x-2 p-2 transition hover:text-sky-500"
                 >
-                  <i class="fa-solid fa-calendar-days"></i>
-                  <span>Book</span>
-                </a>
-              </div>
-              <div>
-                <a
-                  href="/"
-                  class="flex items-center gap-x-2 p-2 transition hover:text-sky-500"
-                >
-                  <i class="fa-solid fa-bell-concierge"></i>
-                  <span>Check In</span>
+                  <i class="fa-solid fa-star"></i>
+                  <span>Reviews</span>
                 </a>
               </div>
               <div>
@@ -200,18 +196,18 @@
               class="relative mt-2 flex items-center justify-center gap-x-16"
             >
               <div
-                class="flex h-12 w-12 rounded-full border border-black bg-sky-500 text-lg font-bold text-white"
+                class="flex h-12 w-12 rounded-full border border-sky-500 bg-sky-500 text-lg font-bold text-white"
               >
                 <span class="m-auto">1</span>
               </div>
               <div
-                class="flex h-12 w-12 rounded-full border border-black text-lg font-bold"
+                class="flex h-12 w-12 rounded-full border border-sky-500 text-lg font-bold"
                 :class="show === 2 || show === 3  ? 'bg-sky-500 text-white' : 'bg-white text-black'"
               >
                 <span class="m-auto">2</span>
               </div>
               <div
-                class="flex h-12 w-12 rounded-full border border-black text-lg font-bold"
+                class="flex h-12 w-12 rounded-full border border-sky-500 text-lg font-bold"
                 :class="show === 3  ? 'bg-sky-500 text-white' : 'bg-white text-black'"
               >
                 <span class="m-auto">3</span>
@@ -602,6 +598,7 @@
         }));
       });
     </script>
+
     <!-- Responsive Helper -->
     <div
       class="fixed bottom-20 right-0 h-12 w-12 bg-blue-200 sm:bg-red-200 md:bg-green-200 lg:bg-yellow-200"

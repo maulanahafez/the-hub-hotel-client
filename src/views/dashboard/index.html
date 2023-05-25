@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>The Hub Hotel</title>
+
+    <!-- Style -->
+    <link
+      rel="stylesheet"
+      href="../../css/style.css"
+    />
+
+    <!-- Alpine.js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- Font Family -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+    </style>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-gray-100 font-open-sans">
+    <!-- Navbar -->
+    <nav class="mx-auto max-w-6xl bg-white">
+      <div
+        class="container mx-auto"
+        x-data="{mobileNav: false, fixed: false}"
+      >
+        <div
+          class="fixed inset-x-0 top-0 border-b border-black/20 bg-white px-6"
+        >
+          <div class="flex items-center justify-between py-1">
+            <div class="">
+              <img
+                src="../../../assets/logo.svg"
+                alt=""
+                class="w-14"
+              />
+            </div>
+
+            <!-- Toggler -->
+            <div class="lg:hidden">
+              <i
+                class="fa-solid fa-bars cursor-pointer text-xl transition hover:text-sky-500"
+                x-on:click="mobileNav = !mobileNav"
+                x-show="!mobileNav"
+                x-transition:enter="transition"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+              ></i>
+              <i
+                class="fa-solid fa-xmark cursor-pointer text-xl transition hover:text-sky-500"
+                x-on:click="mobileNav = !mobileNav"
+                x-show="mobileNav"
+                x-transition:enter="transition"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+              ></i>
+            </div>
+
+            <div class="hidden lg:block">
+              <div class="flex items-center gap-x-2">
+                <span class="flex h-8 w-8 rounded-full border border-black/40">
+                  <i class="fa-solid fa-user m-auto text-black/60"></i>
+                </span>
+                <div class="text-[12px]">
+                  <p>Maulana Hafez AT</p>
+                  <p class="text-black/60">maulanahafez@gmail.com</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nav -->
+            <div
+              class="fixed inset-0 z-[999] max-w-[16rem] border-r border-black/20 bg-white"
+              x-show="mobileNav"
+              x-on:resize.window.debounce="window.innerWidth >= 1024 ?  mobileNav = true : false"
+              x-on:mouseover.window.debounce.once="window.innerWidth >= 1024 ?  mobileNav = true : false"
+              x-transition:enter="transition"
+              x-transition:enter-start="opacity-0 -translate-x-20"
+              x-transition:enter-end="opacity-100"
+              x-transition:leave="transition"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0 -translate-x-20"
+            >
+              <div>
+                <div class="mt-4">
+                  <a href="/">
+                    <img
+                      src="../../../assets/logo.svg"
+                      alt=""
+                      class="mx-auto w-16"
+                    />
+                  </a>
+                </div>
+                <div class="mt-4 px-2">
+                  <div>
+                    <a
+                      href="/"
+                      class="flex w-full items-center gap-x-2 rounded-sm bg-sky-500 px-4 py-2 text-white transition hover:bg-sky-950 hover:text-white"
+                    >
+                      <span class="flex h-6 w-6">
+                        <i class="fa-solid fa-house m-auto text-lg"></i>
+                      </span>
+                      <span class="text-lg">Dashboard</span>
+                    </a>
+                  </div>
+                  <div class="mt-2">
+                    <a
+                      href="/"
+                      class="flex w-full items-center gap-x-2 rounded-sm px-4 py-2 transition hover:bg-sky-950 hover:text-white"
+                    >
+                      <span class="flex h-6 w-6">
+                        <i class="fa-solid fa-user m-auto text-lg"></i>
+                      </span>
+                      <span class="text-lg">Account</span>
+                    </a>
+                  </div>
+                  <div class="mt-2">
+                    <a
+                      href="/"
+                      class="flex w-full items-center gap-x-2 rounded-sm px-4 py-2 transition hover:bg-sky-950 hover:text-white"
+                    >
+                      <span class="flex h-6 w-6">
+                        <i class="fa-solid fa-restroom m-auto text-lg"></i>
+                      </span>
+                      <span class="text-lg">Room Type</span>
+                    </a>
+                  </div>
+                  <div class="mt-2">
+                    <a
+                      href="/"
+                      class="flex w-full items-center gap-x-2 rounded-sm px-4 py-2 transition hover:bg-sky-950 hover:text-white"
+                    >
+                      <span class="flex h-6 w-6">
+                        <i class="fa-solid fa-bed m-auto text-lg"></i>
+                      </span>
+                      <span class="text-lg">Room</span>
+                    </a>
+                  </div>
+                  <div class="mt-2">
+                    <a
+                      href="/"
+                      class="flex w-full items-center gap-x-2 rounded-sm px-4 py-2 transition hover:bg-sky-950 hover:text-white"
+                    >
+                      <span class="flex h-6 w-6">
+                        <i class="fa-solid fa-receipt m-auto text-lg"></i>
+                      </span>
+                      <span class="text-lg">Reservation</span>
+                    </a>
+                  </div>
+                  <div class="mt-2">
+                    <a
+                      href="/"
+                      class="flex w-full items-center gap-x-2 rounded-sm px-4 py-2 transition hover:bg-sky-950 hover:text-white"
+                    >
+                      <span class="flex h-6 w-6">
+                        <i class="fa-solid fa-face-smile m-auto text-lg"></i>
+                      </span>
+                      <span class="text-lg">Reviews</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="mt-[53px] p-5 lg:ml-[256px]">
+      <div class="mx-auto max-w-6xl">
+        <div class="container mx-auto">
+          <div class="">
+            <div class="flex flex-wrap gap-x-6 gap-y-4">
+              <div
+                class="rounded-md bg-green-500 px-5 py-3 text-white shadow-dark-custom"
+              >
+                <div class="text-4xl text-sky-950">
+                  <i class="fa-regular fa-credit-card"></i>
+                </div>
+                <p class="mt-1 font-poppins text-xl text-gray-100">
+                  Total Earning
+                </p>
+                <p class="mt-1 gap-x-1 font-poppins text-2xl font-semibold">
+                  <span>$</span>
+                  <span>29000</span>
+                </p>
+              </div>
+              <div
+                class="rounded-md bg-purple-500 px-5 py-3 text-white shadow-dark-custom"
+              >
+                <div class="text-4xl text-sky-950">
+                  <i class="fa-regular fa-square-check"></i>
+                </div>
+                <p class="mt-1 font-poppins text-xl text-gray-100">
+                  Total Transaction
+                </p>
+                <p class="mt-1 gap-x-1 font-poppins text-2xl font-semibold">
+                  40
+                </p>
+                <p class="mt-1 text-sm text-gray-200">this month</p>
+              </div>
+              <div
+                class="rounded-md bg-blue-500 px-5 py-3 text-white shadow-dark-custom"
+              >
+                <div class="text-4xl text-sky-950">
+                  <i class="fa-regular fa-user"></i>
+                </div>
+                <p class="mt-1 font-poppins text-xl text-gray-100">
+                  User Registered
+                </p>
+                <p class="mt-1 gap-x-1 font-poppins text-2xl font-semibold">
+                  29
+                </p>
+                <p class="mt-1 text-sm text-gray-200">accounts</p>
+              </div>
+              <div
+                class="rounded-md bg-rose-500 px-5 py-3 text-white shadow-dark-custom"
+              >
+                <div class="text-4xl text-sky-950">
+                  <i class="fa-regular fa-circle-check"></i>
+                </div>
+                <p class="mt-1 font-poppins text-xl text-gray-100">
+                  Rooms Available
+                </p>
+                <p class="mt-1 gap-x-1 font-poppins text-2xl font-semibold">
+                  29
+                </p>
+                <p class="mt-1 text-sm text-gray-200">rooms</p>
+              </div>
+              <div
+                class="rounded-md bg-yellow-500 px-5 py-3 text-white shadow-dark-custom"
+              >
+                <div class="text-4xl text-sky-950">
+                  <i class="fa-regular fa-star"></i>
+                </div>
+                <p class="d mt-1 font-poppins text-xl text-gray-100">
+                  Rating Reviews
+                </p>
+                <p class="mt-1 gap-x-1 font-poppins text-2xl font-semibold">
+                  4.9
+                </p>
+              </div>
+            </div>
+            <div class="mt-4 rounded-md bg-white px-5 py-6 shadow-dark-custom">
+              <div>
+                <h1 class="font-poppins text-2xl font-semibold">
+                  Newest Transaction
+                </h1>
+                <div class="overflow-x-auto">
+                  <table class="mt-4 w-full min-w-max overflow-x-auto">
+                    <thead class="font-poppins font-semibold">
+                      <tr>
+                        <td class="px-2">Status</td>
+                        <td class="px-2">Name</td>
+                        <td class="px-2">Room</td>
+                        <td class="px-2"></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="border-y border-black/20 text-sm">
+                        <td class="px-2 py-3">
+                          <span
+                            class="block h-5 w-5 rounded-sm bg-green-500"
+                          ></span>
+                        </td>
+                        <td class="px-2">Usriyatul Khamimah</td>
+                        <td class="px-2">Penthouse P105</td>
+                        <td class="px-2">
+                          <a
+                            href=""
+                            class="cursor-pointer rounded-full bg-blue-500 px-4 py-1 text-[12px] text-white transition hover:bg-sky-950"
+                          >
+                            Detail
+                          </a>
+                        </td>
+                      </tr>
+                      <tr class="border-y border-black/20 text-sm">
+                        <td class="px-2 py-3">
+                          <span
+                            class="block h-5 w-5 rounded-sm bg-green-500"
+                          ></span>
+                        </td>
+                        <td class="px-2">Ahita Bisma</td>
+                        <td class="px-2">Deluxe D101</td>
+                        <td class="px-2">
+                          <a
+                            href=""
+                            class="cursor-pointer rounded-full bg-blue-500 px-4 py-1 text-[12px] text-white transition hover:bg-sky-950"
+                          >
+                            Detail
+                          </a>
+                        </td>
+                      </tr>
+                      <tr class="border-y border-black/20 text-sm">
+                        <td class="px-2 py-3">
+                          <span
+                            class="block h-5 w-5 rounded-sm bg-green-500"
+                          ></span>
+                        </td>
+                        <td class="px-2">Maulana Hafez</td>
+                        <td class="px-2">Executive E201</td>
+                        <td class="px-2">
+                          <a
+                            href=""
+                            class="cursor-pointer rounded-full bg-blue-500 px-4 py-1 text-[12px] text-white transition hover:bg-sky-950"
+                          >
+                            Detail
+                          </a>
+                        </td>
+                      </tr>
+                      <tr class="border-y border-black/20 text-sm">
+                        <td class="px-2 py-3">
+                          <span
+                            class="block h-5 w-5 rounded-sm bg-green-500"
+                          ></span>
+                        </td>
+                        <td class="px-2">Ahita Bisma</td>
+                        <td class="px-2">Family F102</td>
+                        <td class="px-2">
+                          <a
+                            href=""
+                            class="cursor-pointer rounded-full bg-blue-500 px-4 py-1 text-[12px] text-white transition hover:bg-sky-950"
+                          >
+                            Detail
+                          </a>
+                        </td>
+                      </tr>
+                      <tr class="border-y border-black/20 text-sm">
+                        <td class="px-2 py-3">
+                          <span
+                            class="block h-5 w-5 rounded-sm bg-green-500"
+                          ></span>
+                        </td>
+                        <td class="px-2">Usriyatul Khamimah</td>
+                        <td class="px-2">Penthouse P105</td>
+                        <td class="px-2">
+                          <a
+                            href=""
+                            class="cursor-pointer rounded-full bg-blue-500 px-4 py-1 text-[12px] text-white transition hover:bg-sky-950"
+                          >
+                            Detail
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 rounded-md bg-white px-5 py-6 shadow-dark-custom">
+              <div>
+                <h1 class="font-poppins text-2xl font-semibold">New User</h1>
+                <div class="overflow-x-auto">
+                  <table class="mt-4 w-full min-w-max overflow-x-auto">
+                    <thead class="font-poppins font-semibold">
+                      <tr>
+                        <td class="px-2"></td>
+                        <td class="px-2">Name</td>
+                        <td class="px-2">Email</td>
+                        <td></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="border-y border-black/20 text-sm">
+                        <td class="px-2 py-3">1</td>
+                        <td class="px-2">Maulana Hafez</td>
+                        <td class="px-2">
+                          maulana.tempariyawan@mhs.unsoed.ac.id
+                        </td>
+                        <td>
+                          <a
+                            href=""
+                            class="cursor-pointer rounded-full bg-blue-500 px-4 py-1 text-[12px] text-white transition hover:bg-sky-950"
+                          >
+                            Detail
+                          </a>
+                        </td>
+                      </tr>
+                      <tr class="border-y border-black/20 text-sm">
+                        <td class="px-2 py-3">1</td>
+                        <td class="px-2">Usriyatul Khamimah</td>
+                        <td class="px-2">
+                          maulana.tempariyawan@mhs.unsoed.ac.id
+                        </td>
+                        <td>
+                          <a
+                            href=""
+                            class="cursor-pointer rounded-full bg-blue-500 px-4 py-1 text-[12px] text-white transition hover:bg-sky-950"
+                          >
+                            Detail
+                          </a>
+                        </td>
+                      </tr>
+                      <tr class="border-y border-black/20 text-sm">
+                        <td class="px-2 py-3">1</td>
+                        <td class="px-2">Ahita Bisma</td>
+                        <td class="px-2">
+                          maulana.tempariyawan@mhs.unsoed.ac.id
+                        </td>
+                        <td>
+                          <a
+                            href=""
+                            class="cursor-pointer rounded-full bg-blue-500 px-4 py-1 text-[12px] text-white transition hover:bg-sky-950"
+                          >
+                            Detail
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Responsive Helper -->
+    <div
+      class="fixed bottom-20 right-0 h-12 w-12 bg-blue-200 sm:bg-red-200 md:bg-green-200 lg:bg-yellow-200"
+    ></div>
+  </body>
+</html>

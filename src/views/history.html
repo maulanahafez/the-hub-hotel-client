@@ -187,101 +187,83 @@
       </div>
     </nav>
 
-    <section
-      class="mx-auto mb-2 mt-[4rem] max-w-2xl rounded-xl border border-black/10 p-4"
-    >
+    <!-- History -->
+    <section class="mx-auto mb-2 mt-[5rem] max-w-xl px-6">
       <div class="container mx-auto">
-        <form
-          method="post"
-          action=""
-          class="grid grid-cols-1 gap-y-6"
-          x-data="{edit: false}"
-        >
-          <div class="grid items-center sm:grid-cols-3">
-            <p class="font-semibold text-black/60">Name</p>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Name"
-              value="Maulana Hafez"
-              :readonly="!edit"
-              :autofocus="edit"
-              class="col-span-2 w-full rounded-md border border-black/60 px-4 py-2 focus:outline-blue-500"
-              :class="!edit ? 'bg-gray-100' : bg-white"
-            />
-          </div>
-          <div class="grid items-center sm:grid-cols-3">
-            <p class="font-semibold text-black/60">Email</p>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email"
-              value="maulana.tempariyawan@mhs.unsoed.ac.id"
-              :readonly="!edit"
-              class="col-span-2 w-full rounded-md border border-black/60 px-4 py-2 focus:outline-blue-500"
-              :class="!edit ? 'bg-gray-100' : bg-white"
-            />
-          </div>
-          <div class="grid items-center sm:grid-cols-3">
-            <p class="font-semibold text-black/60">Phone Number</p>
-            <input
-              type="text"
-              name="phone_number"
-              id="phone_number"
-              placeholder="Phone Number"
-              value="085602597909"
-              :readonly="!edit"
-              class="col-span-2 w-full rounded-md border border-black/60 px-4 py-2 focus:outline-blue-500"
-              :class="!edit ? 'bg-gray-100' : bg-white"
-            />
-          </div>
-          <div class="grid items-center sm:grid-cols-3">
-            <p class="font-semibold text-black/60">Password</p>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Phone Number"
-              value="12345678"
-              :readonly="!edit"
-              class="col-span-2 w-full rounded-md border border-black/60 px-4 py-2 focus:outline-blue-500"
-              :class="!edit ? 'bg-gray-100' : bg-white"
-            />
-          </div>
-          <div
-            class="grid items-center sm:grid-cols-3"
-            x-show="edit"
-          >
-            <p class="font-semibold text-black/60">Password Confirmation</p>
-            <input
-              type="password"
-              name="password_confirmation"
-              id="password_confirmation"
-              placeholder="Phone Number"
-              value="12345678"
-              :readonly="!edit"
-              class="col-span-2 w-full rounded-md border border-black/60 px-4 py-2 focus:outline-blue-500"
-              :class="!edit ? 'bg-gray-100' : bg-white"
-            />
-          </div>
-          <div class="flex items-center justify-end gap-x-4">
-            <p
-              class="cursor-pointer rounded-md bg-green-500 px-3 py-2 text-white transition hover:bg-green-400"
-              x-on:click="edit = true"
+        <div>
+          <span class="relative inline-block">
+            <span
+              class="font-open-sans text-2xl font-bold text-sky-950 md:text-3xl"
             >
-              Edit Profile
-            </p>
-            <button
-              type="submit"
-              class="rounded-md bg-blue-500 px-3 py-2 text-white transition hover:bg-blue-400"
-              x-show="edit"
+              Reservations
+            </span>
+            <span
+              class="absolute -right-6 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rotate-45 rounded-sm bg-sky-950"
+            ></span>
+            <span
+              class="absolute left-[110%] top-1/2 hidden h-px w-40 -translate-y-1/2 rounded-sm bg-sky-950 sm:inline"
             >
-              Save
-            </button>
+            </span>
+          </span>
+          <div class="mt-8">
+            <div class="mb-4 rounded-lg border border-black/20 px-4 py-2">
+              <div class="flex justify-between">
+                <p class="font-poppins text-2xl font-semibold text-sky-950">
+                  Deluxe Room
+                </p>
+                <p class="mt-1 text-sm">
+                  <span
+                    class="inline-block rounded-md bg-gray-500 px-3 py-1 text-white"
+                  >
+                    Not Arrived
+                  </span>
+                  <span
+                    class="hidden rounded-md bg-green-500 px-3 py-1 text-white"
+                  >
+                    Checked In
+                  </span>
+                  <span
+                    class="hidden rounded-md bg-blue-500 px-3 py-1 text-white"
+                  >
+                    Checked Out
+                  </span>
+                </p>
+              </div>
+              <div
+                class="mt-1 flex flex-wrap items-center gap-x-8 text-sm text-black/60"
+              >
+                <p>20/02/2022</p>
+                <p>22/02/2022</p>
+                <p>2 Days</p>
+              </div>
+              <div class="flex items-center gap-x-4 text-sm">
+                <p class="mt-2">
+                  <i class="fa-solid fa-bed text-sky-500"></i>
+                  <span class="">D101</span>
+                </p>
+                <p class="mt-2">
+                  <i class="fa-solid fa-credit-card text-sky-500"></i>
+                  <span class="">Bank Transfer</span>
+                </p>
+              </div>
+              <!-- Receptionist Area -->
+              <div class="mt-4 border-t border-black/20 pt-2 text-end text-sm">
+                <a
+                  href=""
+                  class="inline-block rounded-md bg-green-500 px-3 py-2 text-white transition hover:bg-opacity-80"
+                >
+                  Checking In
+                </a>
+                <a
+                  href=""
+                  class="inline-block rounded-md bg-blue-500 px-3 py-2 text-white transition hover:bg-opacity-80"
+                >
+                  Checking Out
+                </a>
+              </div>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </section>
 

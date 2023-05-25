@@ -47,14 +47,25 @@
       x-data="{ scrolled: false, mobileNav: false }"
       x-on:scroll.window="pageYOffset >= 100 ? scrolled = true : scrolled = false"
     >
-      <div class="mx-auto max-w-6xl px-6 py-3">
+      <div class="mx-auto max-w-6xl px-6">
         <div class="container mx-auto">
           <div class="mx-1 flex items-center justify-between">
             <div
               class="font-poppins text-xl"
               :class="scrolled ? 'text-sky-950' : 'text-white'"
             >
-              HUBHOTEL
+              <img
+                src="./assets/logo-white.svg"
+                alt=""
+                class="w-20"
+                :class="scrolled ? 'hidden' : null "
+              />
+              <img
+                src="./assets/logo.svg"
+                alt=""
+                class="w-20"
+                :class="!scrolled ? 'hidden' : null "
+              />
             </div>
             <div
               class="text-md hidden items-center gap-x-12 lg:flex"
@@ -74,17 +85,8 @@
                   href="/"
                   class="flex items-center gap-x-2 p-2 transition hover:text-sky-500"
                 >
-                  <i class="fa-solid fa-calendar-days"></i>
-                  <span>Book</span>
-                </a>
-              </div>
-              <div>
-                <a
-                  href="/"
-                  class="flex items-center gap-x-2 p-2 transition hover:text-sky-500"
-                >
-                  <i class="fa-solid fa-bell-concierge"></i>
-                  <span>Check In</span>
+                  <i class="fa-solid fa-star"></i>
+                  <span>Reviews</span>
                 </a>
               </div>
               <div>
@@ -288,9 +290,9 @@
           </span>
         </div>
         <h2 class="mx-auto mt-1 max-w-md text-center text-sm text-gray-600">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates
-          commodi hic inventore modi facilis ipsum, nisi sint reprehenderit
-          illum a!
+          At our hotel, we pride ourselves on providing an unparalleled
+          experience that sets us apart from the rest. Here are compelling
+          reasons why you should choose our hotel for your next stay:
         </h2>
         <div
           class="mt-8 grid auto-rows-fr grid-cols-2 items-start gap-4 sm:grid-cols-2 lg:grid-cols-4"
@@ -399,9 +401,10 @@
           </span>
         </div>
         <h2 class="mx-auto mt-1 max-w-md text-center text-sm text-gray-600">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates
-          commodi hic inventore modi facilis ipsum, nisi sint reprehenderit
-          illum a!
+          Step into a realm of comfort and sophistication in our exquisite hotel
+          rooms. We have meticulously crafted each space to provide a haven of
+          relaxation and luxury, ensuring an unforgettable stay for our esteemed
+          guests.
         </h2>
         <div
           class="mt-8 grid grid-cols-1 justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3"
@@ -539,9 +542,10 @@
           </span>
         </div>
         <h2 class="mx-auto mt-1 max-w-md text-center text-sm text-gray-600">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates
-          commodi hic inventore modi facilis ipsum, nisi sint reprehenderit
-          illum a!
+          Discover what our valued guests have to say about their experiences
+          with us. Read through these genuine reviews and testimonials to get a
+          glimpse into the exceptional service and unforgettable moments that
+          await you at our hotel.
         </h2>
         <div
           class="mt-8 items-center gap-x-12 md:grid md:grid-cols-2"

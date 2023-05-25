@@ -42,24 +42,20 @@
   <body class="font-open-sans">
     <!-- Navbar -->
     <nav
-      class="fixed inset-x-0 top-0 z-[1000] bg-transparent"
-      :class="scrolled ? 'bg-white' : 'sm:bg-transparent bg-white'"
-      x-data="{ scrolled: false, mobileNav: false }"
-      x-on:scroll.window="pageYOffset >= 100 ? scrolled = true : scrolled = false"
+      class="fixed inset-x-0 top-0 z-[1000] bg-transparent bg-white"
+      x-data="{mobileNav: false}"
     >
       <div class="mx-auto max-w-6xl px-6 py-3">
         <div class="container mx-auto">
           <div class="mx-1 flex items-center justify-between">
-            <div
-              class="font-poppins text-xl"
-              :class="scrolled ? 'text-sky-950' : 'sm:text-white text-sky-950'"
-            >
-              HUBHOTEL
+            <div class="">
+              <img
+                src="../../assets/logo.svg"
+                alt=""
+                class="w-14"
+              />
             </div>
-            <div
-              class="text-md hidden items-center gap-x-12 lg:flex"
-              :class="scrolled ? 'text-sky-950' : 'text-white' "
-            >
+            <div class="text-md hidden items-center gap-x-12 lg:flex">
               <div>
                 <a
                   href="/"
@@ -74,17 +70,8 @@
                   href="/"
                   class="flex items-center gap-x-2 p-2 transition hover:text-sky-500"
                 >
-                  <i class="fa-solid fa-calendar-days"></i>
-                  <span>Book</span>
-                </a>
-              </div>
-              <div>
-                <a
-                  href="/"
-                  class="flex items-center gap-x-2 p-2 transition hover:text-sky-500"
-                >
-                  <i class="fa-solid fa-bell-concierge"></i>
-                  <span>Check In</span>
+                  <i class="fa-solid fa-star"></i>
+                  <span>Reviews</span>
                 </a>
               </div>
               <div>
@@ -110,7 +97,6 @@
             <div class="lg:hidden">
               <i
                 class="fa-solid fa-bars cursor-pointer text-2xl transition hover:text-sky-500"
-                :class="scrolled ? 'text-sky-950' : 'sm:text-white text-sky-950'"
                 x-on:click="mobileNav = !mobileNav"
                 x-show="!mobileNav"
                 x-transition:enter="transition"
@@ -119,7 +105,6 @@
               ></i>
               <i
                 class="fa-solid fa-xmark cursor-pointer text-2xl transition hover:text-sky-500"
-                :class="scrolled ? 'text-sky-950' : 'text-white'"
                 x-on:click="mobileNav = !mobileNav"
                 x-show="mobileNav"
                 x-transition:enter="transition"
@@ -202,17 +187,8 @@
       </div>
     </nav>
 
-    <!-- Header -->
-    <header class="hidden sm:block">
-      <img
-        src="../../assets/hero.jpg"
-        alt=""
-        class="h-48 w-full object-cover"
-      />
-    </header>
-
     <!-- Rooms -->
-    <section class="mx-auto max-w-6xl px-6 pb-12 pt-24 sm:py-12">
+    <section class="mx-auto max-w-6xl px-6 py-24">
       <div class="container mx-auto">
         <span class="relative inline-block">
           <span
@@ -229,16 +205,17 @@
           </span>
         </span>
         <h2 class="mt-1 max-w-lg text-sm">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nostrum
-          voluptatibus ducimus quos inventore voluptas corporis neque odit iste
-          dolorem!
+          Welcome to our luxurious hotel rooms, where comfort and style meet to
+          provide you with an unforgettable stay. Immerse yourself in the
+          exquisite ambiance of our thoughtfully designed accommodations,
+          crafted with attention to every detail.
         </h2>
         <div
           class="mt-8 grid grid-cols-1 justify-center gap-x-4 gap-y-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           <a
             href="/"
-            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:shadow-xl md:max-w-none"
+            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:border-sky-500 hover:shadow-xl md:max-w-none"
           >
             <div>
               <img
@@ -273,7 +250,7 @@
           </a>
           <a
             href="/"
-            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:shadow-xl md:max-w-none"
+            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:border-sky-500 hover:shadow-xl md:max-w-none"
           >
             <div>
               <img
@@ -308,7 +285,7 @@
           </a>
           <a
             href="/"
-            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:shadow-xl md:max-w-none"
+            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:border-sky-500 hover:shadow-xl md:max-w-none"
           >
             <div>
               <img
@@ -343,7 +320,7 @@
           </a>
           <a
             href="/"
-            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:shadow-xl md:max-w-none"
+            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:border-sky-500 hover:shadow-xl md:max-w-none"
           >
             <div>
               <img
@@ -378,7 +355,7 @@
           </a>
           <a
             href="/"
-            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:shadow-xl md:max-w-none"
+            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:border-sky-500 hover:shadow-xl md:max-w-none"
           >
             <div>
               <img
@@ -413,7 +390,7 @@
           </a>
           <a
             href="/"
-            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:shadow-xl md:max-w-none"
+            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:border-sky-500 hover:shadow-xl md:max-w-none"
           >
             <div>
               <img
@@ -448,7 +425,7 @@
           </a>
           <a
             href="/"
-            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:shadow-xl md:max-w-none"
+            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:border-sky-500 hover:shadow-xl md:max-w-none"
           >
             <div>
               <img
@@ -483,7 +460,7 @@
           </a>
           <a
             href="/"
-            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:shadow-xl md:max-w-none"
+            class="mx-auto max-w-xs overflow-hidden rounded-lg border border-black/30 shadow-md transition hover:border-sky-500 hover:shadow-xl md:max-w-none"
           >
             <div>
               <img
