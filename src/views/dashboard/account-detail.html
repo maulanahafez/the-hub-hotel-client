@@ -190,7 +190,7 @@
 
     <!-- Content -->
     <div class="mt-[53px] p-5 lg:ml-[256px]">
-      <div class="flex gap-x-4">
+      <div class="flex flex-wrap gap-x-4 gap-y-4">
         <div>
           <div class="rounded-md bg-white px-5 py-6 shadow-dark-custom">
             <i class="fa-regular fa-user text-9xl"></i>
@@ -299,6 +299,13 @@
                   password accurately
                 </p>
               </div>
+              <div class="">
+                <h1 class="font-semibold">Role</h1>
+                <div class="flex items-center gap-x-1">
+                  <span class="h-4 w-4 rounded-full bg-green-500"></span>
+                  <span class="text-sm">Admin</span>
+                </div>
+              </div>
               <div class="flex justify-end gap-x-3">
                 <span
                   class="inline-block cursor-pointer rounded-sm bg-green-500 px-4 py-1 text-white"
@@ -315,18 +322,19 @@
                   <span>Cancel</span>
                 </span>
                 <template x-if="edit">
-                  <span
+                  <button
+                    type="submit"
                     class="inline-block cursor-pointer rounded-sm bg-blue-500 px-4 py-1 text-white"
                     x-on:click="edit = true"
                   >
                     <span>Save Profile</span>
-                  </span>
+                  </button>
                 </template>
               </div>
-
-              <p x-text="form.email"></p>
+              <!-- Debug -->
+              <!-- <p x-text="form.email"></p>
               <p x-text="form.name"></p>
-              <p x-text="form.password"></p>
+              <p x-text="form.password"></p> -->
             </form>
           </div>
           <script>
