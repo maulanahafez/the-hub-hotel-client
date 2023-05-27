@@ -197,7 +197,7 @@
           Create new room type
         </h1>
         <form
-          method="post"
+          method="get"
           action=""
           class="grid max-w-lg grid-cols-1 gap-y-6"
         >
@@ -672,6 +672,24 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div>
+            <label
+              for="price_per_day"
+              class="block font-semibold"
+            >
+              Price per Day
+            </label>
+            <input
+              type="number"
+              name="price_per_day"
+              id="price_per_day"
+              placeholder="Price Per Day"
+              class="mt-1 w-full min-w-fit max-w-full rounded-sm border border-black/20 px-2 py-1 text-sm focus:outline-sky-500"
+            />
+            <p class="mt-0.5 text-[12px] text-black/60">
+              The cost per day for this room's type in USD
+            </p>
           </div>
           <div class="flex justify-end gap-x-3">
             <button
